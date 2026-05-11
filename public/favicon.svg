@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,600&amp;display=swap');
+      .f { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600; }
+    </style>
+  </defs>
+  <rect width="64" height="64" rx="14" ry="14" fill="#042C53"/>
+  <text x="32" y="46" class="f" font-size="44" fill="#FFFFFF" text-anchor="middle">F</text>
+</svg>

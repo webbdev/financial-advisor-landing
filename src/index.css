@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────
+   TAILWIND v4 — CSS-first design tokens via @theme
+   These become Tailwind utilities AND CSS variables.
+   e.g. `--color-navy: #042C53` → `bg-navy`, `text-navy`, etc.
+
+   All colors verified against WCAG AA on their intended bg.
+   ────────────────────────────────────────────────────────── */
+@theme {
+  /* Brand colors */
+  --color-navy: #042c53;
+  --color-navy-deep: #03203d;
+  --color-blue: #0e4f8f;          /* AAA on white */
+  --color-blue-light: #2674c0;    /* dark backgrounds only */
+  --color-blue-soft: #e6f1fb;
+  --color-blue-pale: #bfd9f2;     /* on navy backgrounds */
+
+  /* Neutrals */
+  --color-ink: #0b1220;
+  --color-muted: #3f4a5c;
+  --color-mute-2: #5c6878;
+  --color-bg: #fafaf7;
+  --color-surface: #ffffff;
+  --color-surface-2: #f2efe8;
+  --color-success: #0a6b49;
+
+  /* Lines */
+  --color-line: rgba(11, 18, 32, 0.12);
+  --color-line-2: rgba(11, 18, 32, 0.07);
+
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+
+  /* Radii */
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  /* Custom easing */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ──────────────────────────────────────────────────────────
+   Base layer — resets + global page styles
+   ────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Motion's useScroll measures against the <html> element by default
+     (the document scrolling container). It expects a non-static position
+     to compute offsets reliably; without this, dev mode logs warnings.
+     Setting `relative` here is purely positional context — no visual effect. */
+  html {
+    scroll-behavior: smooth;
+    position: relative;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    /* Motion's useScroll walks the offsetParent chain to compute scroll
+       progress. Default `position: static` on body breaks that chain and
+       triggers a "container has a non-static position" warning. */
+    position: relative;
+  }
+
+  /* Respect reduced-motion preference globally */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* ──────────────────────────────────────────────────────────
+   Component utilities — the few cross-cutting bits that
+   are clearer as named classes than long Tailwind strings.
+   ────────────────────────────────────────────────────────── */
+@layer components {
+  .serif {
+    font-family: var(--font-serif);
+    font-style: italic;
+  }
+
+  .container-x {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @media (max-width: 580px) {
+    .container-x {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  /* Marquee — used in TrustBar.
+     Two copies of the list scroll together; we slide -50%
+     so the loop is seamless. Pause on hover. */
+  .marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: marquee-scroll 32s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Live status dot pulse */
+  .pulse-dot {
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+
+  /* Trust marquee dot — subtle scale pulse */
+  .trust-dot-pulse {
+    animation: trust-dot-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes trust-dot-pulse {
+    0%,
+    100% {
+      opacity: 0.45;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.25);
+    }
+  }
+
+  /* Marquee fade-out edges via CSS mask */
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Hero portfolio card animations
+     The card has several scripted elements: a chart line that
+     draws in, an area fill that fades, an endpoint glow that
+     pulses, and allocation bars that scale in left-to-right.
+     ────────────────────────────────────────────────────────── */
+  @keyframes draw-line {
+    from {
+      stroke-dashoffset: 600;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  .chart-line {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: draw-line 2.4s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
+  }
+
+  @keyframes chart-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .chart-area {
+    opacity: 0;
+    animation: chart-fade-in 0.8s ease-out 2.2s forwards;
+  }
+  .chart-endpoint {
+    opacity: 0;
+    animation: chart-fade-in 0.4s ease-out 2.6s forwards;
+  }
+
+  @keyframes endpoint-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.4;
+    }
+    50% {
+      transform: scale(2.2);
+      opacity: 0;
+    }
+  }
+  .chart-endpoint-glow {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: endpoint-pulse 2s ease-out infinite;
+  }
+
+  /* Hover-revealed data points along the line */
+  .chart-point {
+    opacity: 0;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  .hero-card:hover .chart-point {
+    opacity: 1;
+  }
+  .hero-card:hover .chart-point:nth-of-type(1) {
+    transition-delay: 0.05s;
+  }
+  .hero-card:hover .chart-point:nth-of-type(2) {
+    transition-delay: 0.1s;
+  }
+  .hero-card:hover .chart-point:nth-of-type(3) {
+    transition-delay: 0.15s;
+  }
+  .hero-card:hover .chart-point:nth-of-type(4) {
+    transition-delay: 0.2s;
+  }
+
+  /* Allocation bars — staggered scaleX from the left edge */
+  @keyframes bar-fill {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  .alloc-fill {
+    height: 100%;
+    border-radius: 999px;
+    transform-origin: left center;
+    transform: scaleX(0);
+    animation: bar-fill 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .alloc-fill.equities {
+    background: linear-gradient(90deg, #bfd9f2, #2674c0);
+    animation-delay: 1s;
+  }
+  .alloc-fill.bonds {
+    background: linear-gradient(90deg, #2674c0, #0e4f8f);
+    animation-delay: 1.2s;
+  }
+  .alloc-fill.cash {
+    background: linear-gradient(90deg, #4ade80, #16a34a);
+    animation-delay: 1.4s;
+  }
+
+  /* Disable infinite animations for reduced-motion users */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track,
+    .pulse-dot,
+    .trust-dot-pulse,
+    .chart-endpoint-glow {
+      animation: none !important;
+    }
+    .chart-line {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+    .chart-area,
+    .chart-endpoint {
+      animation: none;
+      opacity: 1;
+    }
+    .alloc-fill {
+      animation: none;
+      transform: scaleX(1);
+    }
+  }
+}
