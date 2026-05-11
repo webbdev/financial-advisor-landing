@@ -5,8 +5,6 @@ React, TS, Vite, Tailwind CSS v4, and Motion.
 
 [**Live demo →**]( )
 
-![Finova landing page](./public/screenshot.png)
-
 ## Tech stack
 
 Vite · React · TypeScript · Tailwind CSS v4 · Motion · React Router
