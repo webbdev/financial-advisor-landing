@@ -3,7 +3,7 @@
 Responsive, animated landing page template for financial advisors. Built with
 React, TS, Vite, Tailwind CSS v4, and Motion.
 
-[**Live demo →**]( )
+[**Live demo →**](https://finova-financial-advisor.netlify.app/)
 
 ## Tech stack
 
