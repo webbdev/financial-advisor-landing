@@ -39,4 +39,5 @@ npm run preview   # preview the production build
 
 ## License
 
-[MIT](./LICENSE) — use it as a starting point for your own work.
+[CC BY-NC 4.0](./LICENSE) — free to use for personal, educational, and
+non-commercial projects with attribution. Commercial use requires permission.
