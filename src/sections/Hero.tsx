@@ -6,7 +6,7 @@ import { smoothScrollTo } from '../lib/scroll'
 
 export function Hero() {
   return (
-    <section className="relative pt-26 md:pt-36 pb-13 md:pb-23">
+    <section className="relative pt-24 md:pt-36 pb-16 md:pb-23">
       <div className="container-x">
         <div className="grid items-center gap-10 md:gap-16 lg:grid-cols-[1.15fr_1fr]">
           {/* Left — copy */}

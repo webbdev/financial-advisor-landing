@@ -4,7 +4,7 @@ import { Reveal } from '../components/Reveal'
 export function QuoteBand() {
   return (
     <ParallaxBand
-      className="py-24 md:py-30"
+      className="py-20 md:py-30"
       imageUrl="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=2000&q=80"
     >
       <div className="mx-auto max-w-[820px] px-8 text-center">
