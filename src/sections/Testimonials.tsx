@@ -5,7 +5,7 @@ export function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-24 md:py-28"
+      className="py-22 md:py-28"
       style={{ backgroundColor: 'var(--color-surface-2)' }}
     >
       <div className="container-x">

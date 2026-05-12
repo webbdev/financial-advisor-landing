@@ -29,7 +29,7 @@ export function ServicePage({ content }: { content: ServiceContent }) {
 
 function Hero({ content }: { content: ServiceContent }) {
   return (
-    <section className="relative pt-28 pb-22 md:pt-36 md:pb-26">
+    <section className="relative pt-26 pb-22 md:pt-36 md:pb-26">
       <div className="container-x">
         <Reveal>
           <Link

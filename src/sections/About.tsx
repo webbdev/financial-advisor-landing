@@ -3,7 +3,7 @@ import { pillars } from '../data/content'
 
 export function About() {
   return (
-    <section id="about" className="py-24 md:py-28">
+    <section id="about" className="py-22 md:py-28">
       <div className="container-x">
         <div className="grid items-center gap-10 md:gap-18 lg:grid-cols-[1fr_1.3fr]">
           {/* Left — years card + partner */}

@@ -7,7 +7,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="py-24 md:py-28"
+      className="py-22 md:py-28"
       style={{ backgroundColor: 'var(--color-surface-2)' }}
     >
       <div className="container-x">

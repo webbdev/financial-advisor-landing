@@ -129,7 +129,7 @@ export default function BookCallPage() {
   }, [submitted, reduce])
 
   return (
-    <section className="relative pt-28 pb-20 md:pt-36 md:pb-28">
+    <section className="relative pt-26 pb-18 md:pt-36 md:pb-28">
       <div className="container-x">
         {/* Page header — always visible. The success-message scroll
             below targets the confirmation card directly, so the header

@@ -40,7 +40,7 @@ export function Philosophy() {
       }}
     >
       <motion.div
-        className="relative z-10 max-w-[880px] px-8 py-32"
+        className="relative z-10 max-w-[880px] px-8 py-22 md:py-32"
         style={{ y, opacity, willChange: 'transform, opacity' }}
       >
         <div

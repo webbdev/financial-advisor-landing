@@ -3,7 +3,7 @@ import { processSteps } from '../data/content'
 
 export function Process() {
   return (
-    <section id="process" className="py-24 md:py-28">
+    <section id="process" className="py-22 md:py-28">
       <div className="container-x">
         <div className="grid items-center gap-10 md:gap-16 lg:grid-cols-[1fr_1.4fr]">
           <Reveal>

@@ -6,7 +6,7 @@ export function CTA() {
   return (
     <ParallaxBand
       id="contact"
-      className="py-28 md:py-36 text-center"
+      className="py-24 md:py-36 text-center"
       imageUrl="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=2000&q=80"
       overlay="linear-gradient(rgba(4, 44, 83, 0.78), rgba(4, 44, 83, 0.88))"
     >

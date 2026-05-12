@@ -5,7 +5,7 @@ import { stats } from '../data/content'
 export function StatsBand() {
   return (
     <ParallaxBand
-      className="py-24 md:py-[120px]"
+      className="py-22 md:py-30"
       imageUrl="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=2000&q=80"
       overlay="linear-gradient(rgba(4, 44, 83, 0.65), rgba(3, 32, 61, 0.93))"
     >
