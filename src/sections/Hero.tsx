@@ -6,7 +6,7 @@ import { smoothScrollTo } from '../lib/scroll'
 
 export function Hero() {
   return (
-    <section className="relative pt-24 md:pt-36 pb-17 md:pb-23">
+    <section className="relative pt-24 md:pt-36 pb-16 md:pb-22">
       <div className="container-x">
         <div className="grid items-center gap-10 md:gap-16 lg:grid-cols-[1.15fr_1fr]">
           {/* Left — copy */}
@@ -44,7 +44,7 @@ export function Hero() {
               their wealth to work — with clear strategies, not&nbsp;guesswork.
             </p>
 
-            <div className="mb-12 flex flex-wrap gap-3">
+            <div className="mb-10 md:mb-12 flex flex-wrap gap-3">
               <Link
                 to="/book"
                 className="group inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium text-white no-underline transition-all hover:-translate-y-px"
@@ -85,7 +85,7 @@ export function Hero() {
             </div>
 
             <div
-              className="flex flex-wrap gap-12 border-t pt-7"
+              className="flex flex-wrap gap-10 md:gap-12 border-t pt-6 md:pt-7"
               style={{ borderColor: 'var(--color-line)' }}
             >
               {heroStats.map((s) => (

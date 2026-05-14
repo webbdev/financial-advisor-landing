@@ -6,7 +6,7 @@ export function TrustBar() {
 
   return (
     <section
-      className="mb-17 md:mb-23 border-y py-7"
+      className="mb-16 md:mb-22 border-y py-7"
       style={{
         backgroundColor: 'var(--color-surface-2)',
         borderColor: 'var(--color-line-2)',

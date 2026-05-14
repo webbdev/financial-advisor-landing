@@ -29,12 +29,12 @@ export function ServicePage({ content }: { content: ServiceContent }) {
 
 function Hero({ content }: { content: ServiceContent }) {
   return (
-    <section className="relative pt-26 pb-22 md:pt-36 md:pb-26">
+    <section className="relative pt-24 pb-22 md:pt-30 md:pb-26">
       <div className="container-x">
         <Reveal>
           <Link
             to="/#services"
-            className="group mb-6 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[1px] no-underline transition-colors"
+            className="group mb-8 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[1px] no-underline transition-colors"
             style={{ color: 'var(--color-blue)' }}
           >
             <span
