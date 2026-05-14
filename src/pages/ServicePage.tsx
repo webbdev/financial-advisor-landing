@@ -29,7 +29,7 @@ export function ServicePage({ content }: { content: ServiceContent }) {
 
 function Hero({ content }: { content: ServiceContent }) {
   return (
-    <section className="relative pt-24 pb-22 md:pt-30 md:pb-26">
+    <section className="relative pt-24 md:pt-30 pb-20 md:pb-26">
       <div className="container-x">
         <Reveal>
           <Link
@@ -71,7 +71,7 @@ function Hero({ content }: { content: ServiceContent }) {
             {content.heroLead}
           </p>
 
-          <div className="mb-12 flex flex-wrap gap-3">
+          <div className="mb-10 md:mb-12 flex flex-wrap gap-3">
             <Link
               to="/book"
               className="group inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium text-white no-underline transition-all hover:-translate-y-px"
@@ -113,7 +113,7 @@ function Hero({ content }: { content: ServiceContent }) {
           </div>
 
           <div
-            className="flex flex-wrap gap-12 border-t pt-7"
+            className="flex flex-wrap gap-10 md:gap-12 border-t pt-6 md:pt-7"
             style={{ borderColor: 'var(--color-line)' }}
           >
             {content.heroStats.map((s) => (
@@ -145,7 +145,7 @@ function Hero({ content }: { content: ServiceContent }) {
 function Features({ content }: { content: ServiceContent }) {
   return (
     <section
-      className="py-22 md:py-28"
+      className="py-20 md:py-28"
       style={{ backgroundColor: 'var(--color-surface-2)' }}
     >
       <div className="container-x">
@@ -216,7 +216,7 @@ function Features({ content }: { content: ServiceContent }) {
 
 function Process({ content }: { content: ServiceContent }) {
   return (
-    <section className="py-22 md:py-28">
+    <section className="py-20 md:py-28">
       <div className="container-x">
         <div className="grid items-start gap-10 md:gap-16 lg:grid-cols-[1fr_1.4fr]">
           <Reveal>
@@ -308,7 +308,7 @@ function Pricing({ content }: { content: ServiceContent }) {
       id="pricing"
       // Scroll-margin-top accounts for the fixed nav so the section
       // heading clears it when "See pricing" is clicked from the hero.
-      className="scroll-mt-24 py-22 md:py-28"
+      className="scroll-mt-24 py-20 md:py-28"
       style={{ backgroundColor: 'var(--color-surface-2)' }}
     >
       <div className="container-x">
@@ -466,7 +466,7 @@ function Faq({ content }: { content: ServiceContent }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-22 md:py-28">
+    <section className="py-20 md:py-28">
       <div className="container-x">
         <Reveal className="mx-auto mb-12 max-w-[640px] text-center">
           <div
