@@ -53,7 +53,7 @@ const FOOTER_COLUMNS: { title: string; links: FooterLink[] }[] = [
 ]
 
 const LEGAL_LINKS: FooterLink[] = [
-  { label: 'Privacy Policy', href: '/privacy', kind: 'placeholder' },
+  { label: 'Privacy Policy', href: '/privacy', kind: 'route' },
   { label: 'Accessibility', href: '/accessibility', kind: 'placeholder' },
   { label: 'Terms', href: '/terms', kind: 'placeholder' },
 ]
