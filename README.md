@@ -30,11 +30,12 @@ npm run preview   # preview the production build
 
 ## Highlights
 
-- Multi-page with client-side routing — home, booking flow, service pages
-- Reusable `ServicePage` layout — new services are one content file
+- Multi-page with client-side routing — home, booking flow, service pages, legal pages
+- Reusable `ServicePage` and `LegalPage` layouts — new pages are one content file
 - Scroll-driven parallax and reveal animations (Motion)
 - Responsive with full-screen mobile menu overlay
 - Accessible — semantic HTML, ARIA, focus-visible, `prefers-reduced-motion`
+- Smart navigation — hides on scroll-down, returns on scroll-up; clean URLs (no `#section` clutter)
 - Lazy-loaded routes for a fast home page
 
 ## License
